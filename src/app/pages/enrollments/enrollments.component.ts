@@ -10,7 +10,7 @@ import { Enrollment, EnrollmentService } from '../../services/enrollments.servic
 })
 export class EnrollmentsComponent implements OnInit {
   enrollments: Enrollment[] = [];
-  enrollment: Enrollment = { name: '', course: '', date: '' };
+  enrollment: Enrollment = { name: '', course: '', email: '', phone: '', date: '', status: 'Pendiente' };
   editMode = false;
 
 
@@ -38,7 +38,7 @@ export class EnrollmentsComponent implements OnInit {
     }
 
 
-    this.enrollment = { name: '', course: '', date: '' };
+    this.enrollment = { name: '', course: '', email: '', phone: '', date: '', status: 'Pendiente' };
   }
 
 

@@ -170,6 +170,28 @@ textarea {
   min-height: 110px;
 }
 
+/* Estilos de validación template-driven */
+input.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(254, 226, 226, 0.6);
+}
+
+input.ng-valid.ng-touched,
+select.ng-valid.ng-touched,
+textarea.ng-valid.ng-touched {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.4);
+}
+
+.error-text {
+  color: #b91c1c;
+  font-size: 12px;
+  margin-top: 6px;
+  display: block;
+}
+
 .actions-row {
   margin-top: 4px;
 }

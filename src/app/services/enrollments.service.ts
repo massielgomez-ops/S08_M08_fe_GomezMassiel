@@ -6,7 +6,14 @@ export interface Enrollment {
   id?: number;
   name: string;
   course: string;
+  email: string;
+  phone: string;
   date: string;
+  status: string;
+  description?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  isDeleted?: boolean;
 }
 
 @Injectable({
@@ -18,7 +25,6 @@ export class EnrollmentService {
   constructor(private http: HttpClient) { }
 
   //GET - listar
-
   getAll(): Observable<Enrollment[]> {
     return this.http.get<Enrollment[]>(this.apiUrl);
   };

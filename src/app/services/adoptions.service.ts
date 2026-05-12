@@ -6,12 +6,19 @@ export interface Adoption {
   id?: number;
   petName: string;
   species: string;
+  breed: string;
   age: number;
+  gender: string;
   adopterName: string;
+  email: string;
   phone: string;
+  address: string;
   adoptionDate: string;
   status: string;
   description?: string;
+  createdAt?: string;
+  updatedAt?: string;
+  isDeleted?: boolean;
 }
 
 @Injectable({

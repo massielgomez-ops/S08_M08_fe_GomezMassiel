@@ -4,12 +4,26 @@
     <div class="formulario">
 
         <h3> {{ editMode ? 'Editar Inscripción' : 'Nueva Inscripción' }}</h3>
-        <form (ngSubmit)="save()">
-            <input type="text" [(ngModel)]="enrollment.name" name="name" placeholder="Nombre Completo" required>
-            <input type="text" [(ngModel)]="enrollment.course" name="course" placeholder="Curso" required>
-            <input type="date" [(ngModel)]="enrollment.date" name="date" required>
-            <button type="submit">{{editMode? 'Actualizar' : 'Inscribirse'}}</button>
-        </form>
+                <form (ngSubmit)="save()" #enrollForm="ngForm" novalidate>
+                        <input type="text" [(ngModel)]="enrollment.name" name="name" placeholder="Nombre Completo" required minlength="3" #name="ngModel">
+                        <small class="error-text" *ngIf="name.invalid && name.touched">
+                            <span *ngIf="name.errors?.['required']">El nombre es obligatorio.</span>
+                            <span *ngIf="name.errors?.['minlength']">Mínimo 3 caracteres.</span>
+                        </small>
+
+                        <input type="text" [(ngModel)]="enrollment.course" name="course" placeholder="Curso" required minlength="2" #course="ngModel">
+                        <small class="error-text" *ngIf="course.invalid && course.touched">
+                            <span *ngIf="course.errors?.['required']">El curso es obligatorio.</span>
+                            <span *ngIf="course.errors?.['minlength']">Mínimo 2 caracteres.</span>
+                        </small>
+
+                        <input type="date" [(ngModel)]="enrollment.date" name="date" required #date="ngModel">
+                        <small class="error-text" *ngIf="date.invalid && date.touched">
+                            <span *ngIf="date.errors?.['required']">La fecha es obligatoria.</span>
+                        </small>
+
+                        <button type="submit" [disabled]="enrollForm.invalid">{{editMode? 'Actualizar' : 'Inscribirse'}}</button>
+                </form>
     </div>
 
     <!-- LISTADO -->

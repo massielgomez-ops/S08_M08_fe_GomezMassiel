@@ -14,9 +14,13 @@ export class AdoptionsComponent implements OnInit {
   adoption: Adoption = {
     petName: '',
     species: '',
+    breed: '',
     age: 0,
+    gender: '',
     adopterName: '',
+    email: '',
     phone: '',
+    address: '',
     adoptionDate: '',
     status: 'Pendiente',
     description: ''
@@ -95,9 +99,13 @@ export class AdoptionsComponent implements OnInit {
     this.adoption = {
       petName: '',
       species: '',
+      breed: '',
       age: 0,
+      gender: '',
       adopterName: '',
+      email: '',
       phone: '',
+      address: '',
       adoptionDate: '',
       status: 'Pendiente',
       description: ''

@@ -29,3 +29,20 @@ textarea {
 button {
   background: linear-gradient(135deg, #9a6b4b, #7c4f34);
 }
+
+.error-text {
+  color: #b91c1c;
+  font-size: 12px;
+  display: block;
+  margin-top: 6px;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched {
+  border-color: #dc2626;
+  box-shadow: 0 0 0 4px rgba(254, 226, 226, 0.6);
+}
+
+input.ng-valid.ng-touched, textarea.ng-valid.ng-touched {
+  border-color: #16a34a;
+  box-shadow: 0 0 0 4px rgba(167, 243, 208, 0.4);
+}

@@ -1,10 +1,31 @@
 <section id="contact">
-    <h2>Contacto</h2>
-    <p>Escribenos para coordinar visitas y adopciones responsables.</p>
-    <input type="text" placeholder="Tu nombre" [(ngModel)]="nombre">
-    <input type="email" placeholder="Tu correo" [(ngModel)]="email">
-    <textarea placeholder="Cuentanos que mascota te interesa" [(ngModel)]="mensaje"></textarea>
-    <br><br>
+        <h2>Contacto</h2>
+        <p>Escríbenos sobre una mascota o adopción y te responderemos pronto.</p>
 
-    <button (click)="enviar()">Enviar</button>
+        <form (ngSubmit)="enviar()" #contactForm="ngForm" novalidate>
+            <label>Nombre:</label>
+            <input type="text" name="nombre" placeholder="Tu nombre" [(ngModel)]="nombre" required minlength="2" #name="ngModel">
+            <small class="error-text" *ngIf="name.invalid && name.touched">
+                <span *ngIf="name.errors?.['required']">El nombre es obligatorio</span>
+                <span *ngIf="name.errors?.['minlength']">Mínimo 2 caracteres</span>
+            </small>
+
+            <label>Correo:</label>
+            <input type="email" name="email" placeholder="Tu correo" [(ngModel)]="email" required email #emailRef="ngModel">
+            <small class="error-text" *ngIf="emailRef.invalid && emailRef.touched">
+                <span *ngIf="emailRef.errors?.['required']">El correo es obligatorio</span>
+                <span *ngIf="emailRef.errors?.['email']">Correo no válido</span>
+            </small>
+
+            <label>Mensaje:</label>
+            <textarea name="mensaje" placeholder="Cuentanos que mascota te interesa" [(ngModel)]="mensaje" required minlength="5" #msg="ngModel"></textarea>
+            <small class="error-text" *ngIf="msg.invalid && msg.touched">
+                <span *ngIf="msg.errors?.['required']">El mensaje es obligatorio</span>
+                <span *ngIf="msg.errors?.['minlength']">Mínimo 5 caracteres</span>
+            </small>
+
+            <div style="margin-top:12px">
+                <button type="submit" [disabled]="contactForm.invalid">Enviar</button>
+            </div>
+        </form>
 </section>
